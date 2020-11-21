@@ -57,7 +57,6 @@ export default class App extends Component {
             </div>
           </div>
         ))}</div>:<Info fruits={fruits} details={details}/>}
-
         <Footer/>
       </div>
     )

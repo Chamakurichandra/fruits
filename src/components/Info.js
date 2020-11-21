@@ -4,6 +4,7 @@ export default class Info extends Component {
     constructor(props){
         super(props);
         this.state={
+            data:1,
             details:props.details
         }
     }

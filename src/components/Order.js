@@ -11,7 +11,6 @@ export default class Order extends Component {
         const {details}=this.state
         return (
             <div>
-
              <h2>My Orders :</h2>   
              {details.total}
 
