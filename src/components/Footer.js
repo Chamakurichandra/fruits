@@ -12,6 +12,7 @@ export default class Footer extends Component {
             <i className="fa fa-windows"></i>
             </div>
             <div className="col">
+            <span>{this.props.cart}</span>
             <i className="fa fa-shopping-cart"></i>  
             </div>
             <div className="col">

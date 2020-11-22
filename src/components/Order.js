@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 export default class Order extends Component {
     constructor(props){
         super(props);
         this.state={
-            order:props.details
+            details:props.details
         }
     }
     render() {

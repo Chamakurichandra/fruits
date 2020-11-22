@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 export default class Info extends Component {
     constructor(props){
         super(props);
@@ -8,6 +7,30 @@ export default class Info extends Component {
             details:props.details
         }
     }
+    Order=(information)=>{
+        this.setState({
+            details:information
+        })
+    }
+Remove=()=>{
+   if(this.state.data===1){
+       this.setState({
+           data:this.state.data
+       })
+   }else{
+       this.setState({
+           data:this.state.data-1
+       })
+   }
+}
+Add =()=>{
+    if(this.state.data<=4){
+        this.setState({
+            data:this.state.data+1
+        })
+    }
+}
+
     render() {
         const {details}=this.state
         return (
@@ -22,13 +45,13 @@ export default class Info extends Component {
             <div>
             <div className="flex">
               <button className="mainBtn">
-              <button type="button" className="btn">-</button>
+              <button onClick={this.Remove} type="button" className="btn">-</button>
              <button type="button"  className="btn">{this.state.data}</button>
-              <button type="button" className="btn">+</button>
+              <button onClick={this.Add} type="button" className="btn">+</button>
               </button>
             </div>
-            <div className="flex"> <button className="btn1">Add to cart</button></div>
-            <div className="flex" ><button className="btn1" style={{border:"1px solid black"}}>{details.quantity} </button></div>
+           <div className="flex"><button className="btn1" style={{border:"1px solid black"}}>{this.state.data}{details.quantity}</button></div>
+           <button onClick={this.Order} type="button" className="btn btn-outline-warning place">Place Order</button>
             </div>
             </div>
             </div>

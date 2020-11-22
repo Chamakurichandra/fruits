@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import "./App.css";
 import Info from "./components/Info";
+import Order from "./components/Order";
 import Footer from "./components/Footer";
 export default class App extends Component {
   constructor(){
@@ -9,9 +10,17 @@ export default class App extends Component {
     this.state={
       fruits:[],
       details:"",
-      data:1
+      data:1,
+      cart:null
     }
   }
+
+ changeState=()=>{
+            this.setState({
+                cart:this.state.cart+1
+            })
+            console.log("added")
+        };
   Show=(acive)=>{
     this.setState({
       details:acive
@@ -44,20 +53,13 @@ export default class App extends Component {
            <span style={{fontWeight:"bolder"}}> {element.name}</span>-{element.price}
             <p>{element.about}</p>
             <div>
-            <div className="flex">
-              <button className="mainBtn ">
-              <button type="button" className="btn">-</button>
-             <button type="button"  className="btn">{this.state.data}</button>
-              <button type="button" className="btn">+</button>
-              </button>
-            </div>
-            <div className="flex"> <button className="btn1">Add to cart</button></div>
-            <div className="flex" ><button className="btn1" style={{border:"1px solid black"}}>{element.quantity} </button></div>
+            <div className="flex"> <button onClick={this.changeState} className="btn1">Add to cart</button></div>
+            <div className="flex" ><button className="btn1" style={{border:"1px solid black"}}>{this.state.data} {element.quantity} </button></div>
             </div>
             </div>
           </div>
-        ))}</div>:<Info fruits={fruits} details={details}/>}
-        <Footer/>
+        ))}</div>:<Info fruits={fruits} details={details}/>||<Order  fruits={fruits} details={details}/>}
+        <Footer cart={this.state.cart}/>
       </div>
     )
   }

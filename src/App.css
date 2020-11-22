@@ -52,9 +52,12 @@
   font-weight: bolder;
 
 }
+.place{
+  font-size: 10px;
+}
 .flex{
   display:inline-block;
-  padding:0.4em;
+  padding-right: 1em;
 }
 .offer{
   background-color: white;
